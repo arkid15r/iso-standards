@@ -89,11 +89,7 @@ jobs:
         with:
           name: iso-standards
           path: dist/
-          overwrite: true
       
-      - name: Display artifacts
-        run: ls -R dist/
-
   publish-to-pypi:
     name: Publish to PyPI
     if: |
@@ -104,7 +100,6 @@ jobs:
     needs:
       - build
     permissions:
-      contents: read
       id-token: write
     runs-on: ubuntu-latest
     steps:
