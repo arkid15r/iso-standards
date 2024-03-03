@@ -87,8 +87,9 @@ jobs:
       - name: Upload package artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: iso-standards
+          path: dist/
+          overwrite: true
 
   publish-to-pypi:
     name: Publish to PyPI
@@ -107,8 +108,8 @@ jobs:
       - name: Get package artifacts
         uses: actions/download-artifact@v3
         with:
-          name: dist
-          path: dist
+          name: iso-standards
+          path: dist/
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
