@@ -1,0 +1,8 @@
+__pycache__
+.pytest_cache
+.python-version
+.ruff_cache
+*.code-workspace
+dist
+data
+scripts
