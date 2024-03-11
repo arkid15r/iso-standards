@@ -11,10 +11,14 @@ class TestIso3166_1(TestCase):
         self.iso3166_1 = Iso3166_1()
 
     def test_get_item(self):
-        self.assertTrue(isinstance(self.iso3166_1.UA, Entity))
+        self.assertIsInstance(self.iso3166_1.UA, Entity)
         self.assertEqual(self.iso3166_1.UA.short_name, "Ukraine")
         self.assertEqual(self.iso3166_1.UA.alpha_2, "UA")
         self.assertEqual(self.iso3166_1.UA.num_3, "804")
 
     def test_contents(self):
         self.assertGreater(len(self.iso3166_1), 200)
+
+    def test_str(self):
+        self.assertEqual(str(self.iso3166_1), "ISO 3166-1 entities")
+        self.assertEqual(str(self.iso3166_1.UA), "ISO 3166-1 UA")

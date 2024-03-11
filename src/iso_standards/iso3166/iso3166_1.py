@@ -338,3 +338,6 @@ class Iso3166_1(EntityCollection):
         "ZM": Entity("Zambia", "ZM", "ZMB", "894", "Zambia", ""),
         "ZW": Entity("Zimbabwe", "ZW", "ZWE", "716", "Zimbabwe", ""),
     }
+
+    def __str__(self) -> str:
+        return "ISO 3166-1 entities"

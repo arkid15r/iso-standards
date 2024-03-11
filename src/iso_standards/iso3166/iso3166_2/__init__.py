@@ -27,3 +27,6 @@ class Iso3166_2(EntityCollection):
                     "Iso3166_2",
                 ).entities
             )
+
+    def __str__(self) -> str:
+        return "ISO 3166-2 entities"

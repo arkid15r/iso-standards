@@ -1,4 +1,4 @@
-"""A consolidated country data.
+"""A consolidated ISO 3166 based entities data.
 
 It contains data from different ISO standards grouped by a specific entity.
 """
@@ -7,10 +7,10 @@ from importlib import import_module
 
 from iso_standards.base import EntityCollection
 from iso_standards.iso3166.iso3166_1 import Iso3166_1
-from iso_standards.utils.types import Country
+from iso_standards.utils.types import Iso3166BasedEntity
 
 
-class CountryCollection(EntityCollection):
+class Iso3166BasedEntities(EntityCollection):
     __slots__ = ()
 
     entities = {}
@@ -28,7 +28,7 @@ class CountryCollection(EntityCollection):
             except ModuleNotFoundError:
                 pass
 
-            country = Country(
+            country = Iso3166BasedEntity(
                 iso3166_1.short_name,
                 iso3166_1.alpha_2,
                 iso3166_1.alpha_3,
@@ -40,3 +40,6 @@ class CountryCollection(EntityCollection):
             country.subdivisions = subdivisions
 
             self.entities[iso3166_1.alpha_2] = country
+
+    def __str__(self) -> str:
+        return "ISO 3166"

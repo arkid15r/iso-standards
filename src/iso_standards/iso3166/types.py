@@ -1,3 +1,5 @@
+"""ISO 3166 related types."""
+
 from typing import NamedTuple
 
 
@@ -22,6 +24,9 @@ class Iso3166_1(NamedTuple):
     # Sovereign country code.
     parent_code: str = ""
 
+    def __str__(self) -> str:
+        return f"ISO 3166-1 {self.alpha_2}"
+
     @property
     def is_independent(self):
         return self.parent_code == ""
@@ -44,3 +49,6 @@ class Iso3166_2(NamedTuple):
 
     # Parent code.
     parent_code: str = ""
+
+    def __str__(self) -> str:
+        return f"ISO 3166-2 {self.code}"
