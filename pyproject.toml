@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "iso-standards"
-version = "0.1.1"
+version = "0.1.2"
 description = "ISO standards"
 authors = ["Arkadii Yakovets <ark@cho.red>"]
 license = "MIT"
