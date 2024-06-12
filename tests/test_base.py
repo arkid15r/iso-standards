@@ -11,6 +11,13 @@ class TestBase(TestCase):
         self.dc = EntityCollection()
         self.dc.entities = {"a": 1, "b": 2, "c": 3, "d": 4}
 
+    def test_contains(self):
+        for key in ("a", "b", "c", "d"):
+            self.assertIn(key, self.dc)
+
+        for key in (None, "", "z", 1):
+            self.assertNotIn(key, self.dc)
+
     def test_getattr(self):
         self.assertEqual(self.dc.a, 1)
 
@@ -19,3 +26,6 @@ class TestBase(TestCase):
 
     def test_iter(self):
         self.assertEqual(tuple(self.dc), (1, 2, 3, 4))
+
+    def test_len(self):
+        self.assertEqual(len(self.dc), 4)

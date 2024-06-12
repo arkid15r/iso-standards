@@ -10,16 +10,17 @@ class EntityCollection:
         if entities is not None:
             self.entities = entities
 
+    def __contains__(self, key):
+        return self.entities.__contains__(key)
+
     def __getattr__(self, name):
         try:
             return self.__getattribute__(name)
-        except AttributeError as e:
+        except AttributeError:
             try:
                 return self.entities[name.replace("_", "-")]
             except KeyError:
                 raise EntityNotFoundError
-
-            raise e
 
     def __iter__(self):
         yield from self.entities.values()
